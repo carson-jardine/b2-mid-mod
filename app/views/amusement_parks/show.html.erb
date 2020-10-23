@@ -1,0 +1,10 @@
+<h2><%= @amusement_park.name %></h2>
+<p>Admission: <%= @amusement_park.admission %></p>
+
+<h4>Rides:</h4>
+<ol>
+  <% @amusement_park.park_rides.each do |ride| %>
+  <li><%= ride.name %></li>
+  <% end %>
+</ol>
+<p>Average Thrill Rating of Rides: <%= @amusement_park.park_rides.average_thrill_rating %></p>
