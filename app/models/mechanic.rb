@@ -1,3 +1,2 @@
 class Mechanic < ApplicationRecord
-
 end
