@@ -1,5 +1,5 @@
 <h2>Mechanic: <%= @mechanic.name %></h2>
-<h4>Years of Experience:<%= @mechanic.experience %> </h4>
+<h4>Years of Experience: <%= @mechanic.experience %> </h4>
 
 <h4>Current rides they are working on:</h4>
 <ul>
@@ -7,3 +7,9 @@
     <li><%= ride.name %></li>
     <% end %>
 </ul>
+
+<%= form_tag "/mechanics/#{@mechanic.id}", method: :get do %>
+  <%= label_tag :search, "Add a ride to workload: " %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Submit' %>
+<% end %>

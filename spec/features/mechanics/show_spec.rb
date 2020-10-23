@@ -9,8 +9,9 @@ describe 'As a visitor' do
       @ride_1 = ParkRide.create!({name: "Lightning Racer", thrill_rating: 5, amusement_park_id: "#{@hershey_park.id}"})
       @ride_2 = ParkRide.create!({name: "Storm Runner", thrill_rating: 8, amusement_park_id: "#{@hershey_park.id}"})
       @ride_3 = ParkRide.create!({name: "The Frog Hopper", thrill_rating: 3, amusement_park_id: "#{@hershey_park.id}"})
-      MechanicRide.create!({mechanic: "#{@mechanic_1.id}", park_ride: "#{@ride_1.id}"})
-      MechanicRide.create!({mechanic: "#{@mechanic_1.id}", park_ride: "#{@ride_2.id}"})
+
+      MechanicRide.create!({mechanic_id: @mechanic_1.id, park_ride_id: @ride_1.id})
+      MechanicRide.create!({mechanic_id: @mechanic_1.id, park_ride_id: @ride_2.id})
     end
     it "I see their name, details, and rides they are working on" do
       visit "/mechanics/#{@mechanic_1.id}"
@@ -27,7 +28,8 @@ describe 'As a visitor' do
       visit "/mechanics/#{@mechanic_1.id}"
 
       expect(page).to have_content("Add a ride to workload:")
-      fill_in :add_work, with: "#{@ride_3.id}"
+
+      fill_in :search, with: "#{@ride_3.id}"
 
       click_on "Submit"
       expect(current_path).to eq("/mechanics/#{@mechanic_1.id}")
