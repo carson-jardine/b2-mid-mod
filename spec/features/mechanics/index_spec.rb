@@ -12,6 +12,5 @@ describe 'As a visitor' do
       expect(page).to have_content("#{@mechanic_1.name}")
       expect(page).to have_content("#{@mechanic_1.experience}")
     end
-
   end
 end

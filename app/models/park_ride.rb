@@ -1,0 +1,3 @@
+class ParkRide < ApplicationRecord
+
+end
