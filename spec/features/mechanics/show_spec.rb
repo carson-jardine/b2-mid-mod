@@ -28,7 +28,6 @@ describe 'As a visitor' do
       visit "/mechanics/#{@mechanic_1.id}"
 
       expect(page).to have_content("Add a ride to workload:")
-
       fill_in :search, with: "#{@ride_3.id}"
 
       click_on "Submit"
